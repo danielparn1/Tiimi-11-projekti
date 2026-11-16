@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lisää treeni - Vire</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <p class="logo">Vire</p>
+    <a href="login.html">Kirjaudu ulos</a>
+  </header>
+
+  <main>
+    <a href="treenit.html">&larr; Takaisin</a>
+    <h1>Uusi treeni</h1>
+
+    <form class="kortti" action="treenit.html" method="post">
+      <label for="paivamaara">Päivämäärä</label>
+      <input type="date" id="paivamaara" name="paivamaara" required>
+
+      <label for="treenityyppi">Treenityyppi</label>
+      <select id="treenityyppi" name="treenityyppi" required>
+        <option value="">Valitse</option>
+        <option>Kuntosali</option>
+        <option>Juoksu</option>
+        <option>Kävely</option>
+        <option>Pyöräily</option>
+        <option>Uinti</option>
+        <option>Jooga</option>
+        <option>Muu</option>
+      </select>
+
+      <label for="kesto">Kesto (minuuttia)</label>
+      <input type="number" id="kesto" name="kesto" min="1" required>
+
+      <label for="kuvaus">Kuvaus (valinnainen)</label>
+      <textarea id="kuvaus" name="kuvaus" rows="4"></textarea>
+
+      <label for="keskisyke">Keskisyke (valinnainen)</label>
+      <input type="number" id="keskisyke" name="keskisyke" min="30" max="230">
+
+      <label for="maksimisyke">Maksimisyke (valinnainen)</label>
+      <input type="number" id="maksimisyke" name="maksimisyke" min="30" max="230">
+
+      <button type="submit" class="nappi">Tallenna treeni</button>
+    </form>
+  </main>
+
+  <nav>
+    <a href="index.html">Etusivu</a>
+    <a href="treenit.html" class="valittu">Treenit</a>
+    <a href="viikko.html">Viikko</a>
+  </nav>
+</body>
+</html>

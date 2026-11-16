@@ -1,0 +1,305 @@
+:root {
+  --tausta: #eef1e8;
+  --kortti: #ffffff;
+  --vaalea: #e3e8db;
+  --tumma: #1f3a2a;
+  --lime: #d4ec8e;
+  --teksti: #1b2a20;
+  --harmaa: #6b7568;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--tausta);
+  color: var(--teksti);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 90px; /* tilaa alanavigaatiolle */
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+a {
+  color: var(--tumma);
+}
+
+.harmaa {
+  color: var(--harmaa);
+}
+
+.pieni {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--lime);
+}
+
+.iso {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* Yläpalkki */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--tumma);
+}
+
+/* Kortit */
+
+.kortti {
+  background-color: var(--kortti);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.kortti h2,
+.kortti h3 {
+  margin-top: 0;
+}
+
+.tumma {
+  background-color: var(--tumma);
+  color: white;
+}
+
+.vaalea {
+  background-color: var(--vaalea);
+}
+
+.vaalea .pieni {
+  color: var(--harmaa);
+}
+
+.kaksi {
+  display: flex;
+  gap: 15px;
+}
+
+.kaksi .kortti {
+  flex: 1;
+}
+
+/* Lomakkeet */
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #c5ccbd;
+  border-radius: 10px;
+  background-color: var(--vaalea);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--tumma);
+}
+
+/* Napit */
+
+.nappi {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--tumma);
+  background-color: var(--lime);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.nappi:hover {
+  background-color: #c6e077;
+}
+
+.tumma-nappi {
+  background-color: var(--tumma);
+  color: white;
+}
+
+.tumma-nappi:hover {
+  background-color: #2c4d3a;
+}
+
+.poista {
+  background: none;
+  border: 1px solid #b33a3a;
+  color: #b33a3a;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.poista:hover {
+  background-color: #b33a3a;
+  color: white;
+}
+
+/* Kirjautumissivut */
+
+.keskitetty {
+  padding-top: 60px;
+}
+
+.keskitetty .logo {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+/* Etusivun päiväpallot */
+
+.paivat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paiva {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--vaalea);
+  font-size: 11px;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.tehty {
+  background-color: var(--lime);
+}
+
+.tanaan {
+  background-color: var(--tumma);
+  color: white;
+}
+
+/* Viikkosivun pylväät */
+
+.pylvaat {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 150px;
+}
+
+.pylvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+}
+
+.tayte {
+  width: 100%;
+  background-color: var(--tumma);
+  border-radius: 6px;
+}
+
+.pylvas span {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--harmaa);
+}
+
+/* Taulukko */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--kortti);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--vaalea);
+}
+
+th {
+  background-color: var(--vaalea);
+}
+
+/* Alanavigaatio */
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--kortti);
+  padding: 10px;
+  border-top: 1px solid var(--vaalea);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--harmaa);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+nav a.valittu {
+  background-color: var(--lime);
+  color: var(--tumma);
+  font-weight: bold;
+}
+
+/* Isommat näytöt */
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 38px;
+  }
+}

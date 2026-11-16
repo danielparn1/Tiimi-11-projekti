@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rekisteröidy - Vire</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="keskitetty">
+    <p class="logo">Vire</p>
+    <h1>Luo tunnus</h1>
+    <p class="harmaa">Aloita treenien kirjaaminen.</p>
+
+    <form action="index.html" method="post">
+      <label for="kayttajatunnus">Käyttäjätunnus</label>
+      <input type="text" id="kayttajatunnus" name="kayttajatunnus" required>
+
+      <label for="salasana">Salasana (vähintään 8 merkkiä)</label>
+      <input type="password" id="salasana" name="salasana" minlength="8" required>
+
+      <label for="salasana2">Salasana uudelleen</label>
+      <input type="password" id="salasana2" name="salasana2" minlength="8" required>
+
+      <button type="submit" class="nappi">Luo tunnus</button>
+    </form>
+
+    <p>Onko sinulla jo tunnus? <a href="kirjaudu.html">Kirjaudu</a></p>
+  </main>
+</body>
+</html>
