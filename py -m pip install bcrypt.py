@@ -1,5 +1,3 @@
-py -m pip install bcrypt
-
 
 import sqlite3
 import bcrypt
@@ -16,6 +14,7 @@ def create_database():
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
+            email TEXT UNIQUE NOT NULL,
             password_hash BLOB NOT NULL
         )
     """)
@@ -27,9 +26,18 @@ def create_database():
 # Rekisteröinti
 def register():
     username = input("Käyttäjätunnus: ").strip()
+    email = input("Sähköposti: ").strip()
     password = getpass.getpass("Salasana: ")
 
-    if not username or len(password) < 8:
+    if not username:
+        print("Virhe! Käyttäjätunnus puuttuu.")
+        return
+
+    if "@" not in email or "." not in email:
+        print("Virhe! Anna kelvollinen sähköpostiosoite.")
+        return
+
+    if len(password) < 8:
         print("Virhe! Salasanan pitää olla vähintään 8 merkkiä.")
         return
 
@@ -42,14 +50,18 @@ def register():
 
     try:
         conn.execute(
-            "INSERT INTO users (username, password_hash) VALUES (?, ?)",
-            (username, password_hash)
+            """
+            INSERT INTO users (username, email, password_hash)
+            VALUES (?, ?, ?)
+            """,
+            (username, email, password_hash)
         )
+
         conn.commit()
         print("Käyttäjä luotu onnistuneesti!")
 
     except sqlite3.IntegrityError:
-        print("Käyttäjätunnus on jo olemassa!")
+        print("Virhe! Käyttäjätunnus tai sähköposti on jo käytössä.")
 
     finally:
         conn.close()
@@ -85,7 +97,7 @@ def show_users():
     conn = sqlite3.connect(DATABASE)
 
     users = conn.execute(
-        "SELECT id, username FROM users"
+        "SELECT id, username, email FROM users"
     ).fetchall()
 
     conn.close()
@@ -93,7 +105,11 @@ def show_users():
     print("\n--- KÄYTTÄJÄT ---")
 
     for user in users:
-        print(f"ID: {user[0]} | Käyttäjä: {user[1]}")
+        print(
+            f"ID: {user[0]} | "
+            f"Käyttäjä: {user[1]} | "
+            f"Sähköposti: {user[2]}"
+        )
 
 
 # Päävalikko
