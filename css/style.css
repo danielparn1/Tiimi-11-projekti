@@ -45,6 +45,11 @@ a {
   color: var(--harmaa);
 }
 
+.virhe {
+  color: red;
+  font-weight: bold;
+}
+
 .pieni {
   font-size: 12px;
   font-weight: bold;
